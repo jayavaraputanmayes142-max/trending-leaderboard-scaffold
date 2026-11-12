@@ -1,8 +1,5 @@
 // test.js — proves the leaderboard works.
 // Run with:  npm test   (run `npm run seed` first)
-//
-// The test: take a LOW-scored post, upvote it 50 times, then assert it now
-// appears in the top 10 of getTop(10). If it doesn't, your upvote/getTop is wrong.
 
 import { upvote, getTop, redis } from "./leaderboard.js";
 
@@ -11,7 +8,7 @@ async function run() {
 
   // Upvote the target 50 times.
   for (let i = 0; i < 50; i++) {
-    // TODO: await upvote(target);
+    await upvote(target);
   }
 
   // Fetch the top 10 WITH metadata.
